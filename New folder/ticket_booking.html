@@ -1,0 +1,384 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>NexArena - Book Tickets</title>
+<!-- Tailwind CSS v3 CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Outfit -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Outfit', 'sans-serif'],
+        },
+        colors: {
+          "primary-fixed-dim": "#cfbcff",
+          "surface-variant": "#e6e0e9",
+          "on-tertiary-container": "#503d00",
+          "surface-container-high": "#ece6ee",
+          "surface-container-highest": "#e6e0e9",
+          "on-tertiary-fixed-variant": "#594400",
+          "on-tertiary-fixed": "#241a00",
+          "on-error": "#ffffff",
+          "on-tertiary": "#ffffff",
+          "surface-container": "#f2ecf4",
+          "on-background": "#1d1b20",
+          "primary-container": "#6750a4",
+          "on-primary-fixed-variant": "#4f378a",
+          "secondary-fixed-dim": "#cdc0e9",
+          "tertiary": "#765b00",
+          "surface-dim": "#ded8e0",
+          "inverse-surface": "#322f35",
+          "primary": "#4f378a",
+          "secondary-container": "#e1d4fd",
+          "background": "#fdf7ff",
+          "on-surface-variant": "#494551",
+          "secondary-fixed": "#e9ddff",
+          "on-secondary-fixed-variant": "#4b4263",
+          "on-primary": "#ffffff",
+          "inverse-primary": "#cfbcff",
+          "error-container": "#ffdad6",
+          "tertiary-fixed-dim": "#e7c365",
+          "surface-container-low": "#f8f2fa",
+          "on-primary-fixed": "#22005d",
+          "surface-container-lowest": "#ffffff",
+          "primary-fixed": "#e9ddff",
+          "outline-variant": "#cbc4d2",
+          "outline": "#7a7582",
+          "secondary": "#63597c",
+          "on-primary-container": "#e0d2ff",
+          "surface-tint": "#6750a4",
+          "tertiary-fixed": "#ffdf93",
+          "on-error-container": "#93000a",
+          "tertiary-container": "#c9a74d",
+          "on-secondary-fixed": "#1f1635",
+          "on-secondary-container": "#645a7d",
+          "surface": "#fdf7ff",
+          "surface-bright": "#fdf7ff",
+          "on-secondary": "#ffffff",
+          "on-surface": "#1d1b20",
+          "error": "#ba1a1a",
+          "inverse-on-surface": "#f5eff7"
+        },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "2xl": "1rem",
+          "3xl": "1.5rem",
+          "full": "9999px"
+        },
+      },
+    },
+  }
+</script>
+<style data-purpose="custom-glows">
+    .glow-active {
+      background: rgba(103, 80, 164, 0.08);
+      border: 1px solid rgba(103, 80, 164, 0.3);
+    }
+    .btn-primary {
+      background-color: #6750A4;
+      color: #ffffff;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #4f378a;
+      box-shadow: 0 4px 12px rgba(103, 80, 164, 0.25);
+    }
+    .score-badge-glow {
+      background: #f8f2fa;
+      border: 1px solid #cbc4d2;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-sans h-full overflow-hidden flex">
+<!-- BEGIN: Left Sidebar -->
+<aside class="w-64 flex-shrink-0 bg-inverse-surface border-r border-outline-variant flex flex-col justify-between py-6 px-4" data-purpose="sidebar-navigation">
+<div>
+<!-- Logo Section -->
+<div class="flex items-center space-x-3 mb-10 px-2"><div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center shadow-lg">
+  <svg class="h-6 w-6 text-on-primary-container" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+  </svg>
+</div>
+<div>
+  <h1 class="font-bold text-white text-lg leading-none">NexArena</h1>
+  <span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-medium">Stadium Management</span>
+</div></div>
+<!-- Nav Links -->
+<nav class="space-y-2"><a class="flex items-center space-x-3 px-4 py-3 text-on-surface-variant hover:text-white transition-colors" href="#">
+  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+  <span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-white bg-primary rounded-xl" href="#">
+  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+  <span class="font-bold">Book Tickets</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-on-surface-variant hover:text-white transition-colors" href="#">
+  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+  <span class="font-medium">My Bookings</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-on-surface-variant hover:text-white transition-colors" href="#">
+  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+  <span class="font-medium">AI Stadium Chatbot</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-on-surface-variant hover:text-white transition-colors" href="#">
+  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+  <span class="font-medium">AI Match Day Planner</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-on-surface-variant hover:text-white transition-colors" href="#">
+  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+  <span class="font-medium">AI Announcements</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-on-surface-variant hover:text-white transition-colors" href="#">
+  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+  <span class="font-medium">Settings</span>
+</a></nav>
+</div>
+<!-- User Profile Footer -->
+<div class="mt-auto">
+  <div class="mb-6 px-4">
+    <div class="flex items-center space-x-3 text-on-surface-variant hover:text-white transition-colors cursor-pointer">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+      <span class="font-medium">Support</span>
+    </div>
+  </div>
+  <div class="bg-surface-container-lowest rounded-2xl p-3 flex items-center justify-between shadow-sm">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&amp;fit=crop&amp;w=100&amp;h=100" alt="User" class="w-full h-full object-cover">
+      </div>
+      <div>
+        <p class="text-sm font-bold text-on-surface leading-tight">nithin @nithin1</p>
+        <p class="text-[10px] text-on-surface-variant font-medium">Administrator</p>
+      </div>
+    </div>
+    <button class="text-on-surface-variant hover:text-primary transition-colors">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+    </button>
+  </div>
+</div>
+</aside>
+<!-- END: Left Sidebar -->
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto" data-purpose="main-content">
+<!-- BEGIN: Top Bar -->
+<header class="h-16 border-b border-outline-variant flex items-center justify-between px-8 sticky top-0 bg-background/80 backdrop-blur-md z-10">
+<!-- Live Score Ticker -->
+<div class="score-badge-glow rounded-full px-4 py-1.5 flex items-center space-x-4 text-xs font-bold">
+<span class="text-on-surface">ARG</span>
+<span class="text-primary">2 - 2</span>
+<span class="text-on-surface">FRA</span>
+<span class="text-on-surface-variant font-normal">82'</span>
+</div>
+<!-- Stats & Language -->
+<div class="flex items-center space-x-8">
+<div class="flex items-center space-x-6 text-xs font-medium">
+<div class="flex flex-col items-end">
+<span class="text-on-surface-variant uppercase tracking-tighter">Stadium Occupancy</span>
+<div class="flex items-center space-x-2">
+<span class="text-on-surface">94%</span>
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-on-surface-variant uppercase tracking-tighter">Arena Weather</span>
+<div class="flex items-center space-x-2">
+<span class="text-on-surface">28°C Clear</span>
+<svg class="h-4 w-4 text-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</div>
+<button class="flex items-center space-x-2 bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant px-3 py-1.5 rounded-lg text-xs font-medium text-on-surface transition-colors">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">English</span>
+<svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</header>
+<!-- END: Top Bar -->
+<!-- BEGIN: Search & Hero Section -->
+<section class="px-8 pt-10 pb-6" data-purpose="content-header">
+<div class="mb-10">
+<h2 class="text-4xl font-extrabold text-on-surface mb-2">FIFA Match Ticket Booking</h2>
+<p class="text-on-surface-variant">Browse and secure tickets for major World Cup 2026 tournaments.</p>
+</div>
+<!-- Search and Filters -->
+<div class="flex items-center space-x-4 mb-8" data-purpose="search-filters">
+<div class="flex-1 relative">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<svg class="h-5 w-5 text-on-surface-variant" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<input class="w-full bg-surface-container-low border-outline-variant rounded-xl py-3 pl-12 pr-4 text-on-surface focus:ring-primary focus:border-primary transition-all" placeholder="Search teams..." type="text">
+</div>
+<div class="relative">
+<select class="bg-surface-container-low border-outline-variant rounded-xl py-3 pl-4 pr-10 text-on-surface appearance-none focus:ring-primary focus:border-primary transition-all min-w-[180px]">
+<option>Filter by Stadium</option>
+<option>MetLife Stadium</option>
+<option>SoFi Stadium</option>
+<option>Azteca Stadium</option>
+<option>BC Place</option>
+</select>
+</div>
+<div class="relative">
+<input class="bg-surface-container-low border-outline-variant rounded-xl py-3 pl-4 pr-10 text-on-surface focus:ring-primary focus:border-primary transition-all w-[180px]" placeholder="dd-mm-yyyy" type="text">
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+<svg class="h-5 w-5 text-on-surface-variant" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Search & Hero Section -->
+<!-- BEGIN: Match Grid -->
+<section class="px-8 pb-12">
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+<!-- Match Card 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-3xl p-6 relative overflow-hidden group hover:border-primary transition-colors" data-purpose="match-card">
+<div class="flex justify-between items-start mb-8">
+<div class="flex items-center space-x-2 text-primary font-bold text-sm">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">2026-06-12 @ 18:00</span>
+</div>
+<span class="text-primary text-xs font-black uppercase tracking-widest">476 Seats Left</span>
+</div>
+<div class="flex items-center mb-10">
+<div class="flex items-baseline space-x-2">
+<span class="text-3xl font-black text-on-surface">AR</span>
+<span class="text-2xl font-bold text-on-surface">Argentina</span>
+</div>
+<span class="mx-4 text-primary opacity-50 font-bold italic">VS</span>
+<div class="flex items-baseline space-x-2">
+<span class="text-3xl font-black text-on-surface">FR</span>
+<span class="text-2xl font-bold text-on-surface">France</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-6 flex items-center space-x-2 text-on-surface-variant text-sm mb-10">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">MetLife Stadium (New York)</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest mb-1">Price</p>
+<p class="text-3xl font-black text-primary">$250</p>
+</div>
+<button class="btn-primary px-6 py-3 rounded-xl flex items-center space-x-2 font-bold shadow-lg">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">Book Tickets</span>
+</button>
+</div>
+</article>
+<!-- Match Card 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-3xl p-6 relative overflow-hidden group hover:border-primary transition-colors" data-purpose="match-card">
+<div class="flex justify-between items-start mb-8">
+<div class="flex items-center space-x-2 text-primary font-bold text-sm">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">2026-06-15 @ 20:00</span>
+</div>
+<span class="text-primary text-xs font-black uppercase tracking-widest">620 Seats Left</span>
+</div>
+<div class="flex items-center mb-10">
+<div class="flex items-baseline space-x-2">
+<span class="text-3xl font-black text-on-surface">BR</span>
+<span class="text-2xl font-bold text-on-surface">Brazil</span>
+</div>
+<span class="mx-4 text-primary opacity-50 font-bold italic">VS</span>
+<div class="flex items-baseline space-x-2">
+<span class="text-3xl font-black text-on-surface">DE</span>
+<span class="text-2xl font-bold text-on-surface">Germany</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-6 flex items-center space-x-2 text-on-surface-variant text-sm mb-10">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">SoFi Stadium (Los Angeles)</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest mb-1">Price</p>
+<p class="text-3xl font-black text-primary">$280</p>
+</div>
+<button class="btn-primary px-6 py-3 rounded-xl flex items-center space-x-2 font-bold shadow-lg">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">Book Tickets</span>
+</button>
+</div>
+</article>
+<!-- Match Card 3 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-3xl p-6 relative overflow-hidden group hover:border-primary transition-colors" data-purpose="match-card">
+<div class="flex justify-between items-start mb-8">
+<div class="flex items-center space-x-2 text-primary font-bold text-sm">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">2026-06-18 @ 19:30</span>
+</div>
+<span class="text-primary text-xs font-black uppercase tracking-widest">310 Seats Left</span>
+</div>
+<div class="flex items-center mb-10">
+<div class="flex items-baseline space-x-2">
+<span class="text-3xl font-black text-on-surface">US</span>
+<span class="text-2xl font-bold text-on-surface">USA</span>
+</div>
+<span class="mx-4 text-primary opacity-50 font-bold italic">VS</span>
+<div class="flex items-baseline space-x-2">
+<span class="text-3xl font-black text-on-surface">MX</span>
+<span class="text-2xl font-bold text-on-surface">Mexico</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-6 flex items-center space-x-2 text-on-surface-variant text-sm mb-10">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">Azteca Stadium (Mexico City)</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest mb-1">Price</p>
+<p class="text-3xl font-black text-primary">$190</p>
+</div>
+<button class="btn-primary px-6 py-3 rounded-xl flex items-center space-x-2 font-bold shadow-lg">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">Book Tickets</span>
+</button>
+</div>
+</article>
+<!-- Match Card 4 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-3xl p-6 relative overflow-hidden group hover:border-primary transition-colors opacity-80" data-purpose="match-card">
+<div class="flex justify-between items-start mb-8">
+<div class="flex items-center space-x-2 text-on-surface-variant font-bold text-sm">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">2026-06-20 @ 17:00</span>
+</div>
+<span class="text-on-surface-variant text-xs font-black uppercase tracking-widest">590 Seats Left</span>
+</div>
+<div class="flex items-center mb-10">
+<div class="flex items-baseline space-x-2">
+<span class="text-3xl font-black text-on-surface">JP</span>
+<span class="text-2xl font-bold text-on-surface">Japan</span>
+</div>
+<span class="mx-4 text-on-surface-variant opacity-50 font-bold italic">VS</span>
+<div class="flex items-baseline space-x-2">
+<span class="text-3xl font-black text-on-surface">ES</span>
+<span class="text-2xl font-bold text-on-surface">Spain</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-6 flex items-center space-x-2 text-on-surface-variant text-sm mb-10">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">BC Place (Vancouver)</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest mb-1">Price</p>
+<p class="text-3xl font-black text-on-surface-variant">$220</p>
+</div>
+<button class="bg-surface-container border border-outline-variant px-6 py-3 rounded-xl flex items-center space-x-2 font-bold text-on-surface-variant cursor-not-allowed" disabled="">
+<span class="">Sales Closed</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- END: Match Grid -->
+</main>
+
+
+</body></html>
