@@ -1,54 +1,80 @@
-# NexArena — SmartStadium AI
+# ⚽ NexArena
 
-An AI-integrated stadium management platform built for the FIFA World Cup 2026, combining
-crowd-navigation assistance, multilingual safety communication, and match-day logistics
-planning for both fans and stadium staff.
+> **Reimagining FIFA World Cup 2026 Stadium Operations with Generative AI.**
 
-## AI Modules
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Gemini](https://img.shields.io/badge/Gemini%20API-4285F4?style=for-the-badge&logo=google&logoColor=white)
 
-| # | Module | What it does | Backend | Frontend |
-|---|--------|---------------|---------|----------|
-| 1 | **Stadium Chatbot** | RAG-backed Q&A for navigation, ticketing, food, and emergency info | `app/chatbot_service.py`, `app/rag_service.py` | Customer Dashboard chat panel |
-| 2 | **Announcement Generator** | Drafts calm, professional public-safety announcements from raw incident details, with an admin approval step | `app/announcement_service.py` | Admin Dashboard |
-| 3 | **Multilingual Translation** | Translates announcements and stadium phrases across 8 languages (text + mock speech) | `app/translation_service.py` | Language selector, Admin broadcast tools |
-| 4 | **Match Day Planner** | Generates and re-optimizes a personalized arrival/parking/food/exit plan per fan, adjusting to live situational changes (e.g. traffic delays) | `app/planner_service.py` | Customer Dashboard planner |
+NexArena is a GenAI-powered smart stadium platform built to transform stadium operations and enhance the FIFA World Cup 2026 experience. Designed for fans, organizers, volunteers, and venue staff, it combines conversational AI, intelligent planning, multilingual communication, and automated announcements to deliver seamless, real time assistance throughout the tournament.
 
-Every module works fully offline out of the box (deterministic fallback responses), and
-upgrades automatically to live OpenAI-generated responses when `OPENAI_API_KEY` is set.
+---
 
-## Project Structure
+# 🧭 Problem Statement
 
-```
-nexarena/
-├── app/            # FastAPI backend (API, services, models)
-├── frontend/        # React + TypeScript + Vite source (Customer & Admin dashboards)
-├── static/          # Built frontend assets served by the FastAPI app
-└── tests/            # Automated backend test suite (pytest)
-```
+Develop a Generative AI solution that enhances stadium operations and improves the tournament experience by providing intelligent assistance, multilingual communication, operational intelligence, and real-time decision support during the FIFA World Cup 2026.
 
-## Running the backend
+---
+# ⭐ Core Modules
 
-```bash
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-```
+| Module | Description |
+|:-------|:------------|
+| **AI Stadium Chatbot** | Provides instant assistance for navigation, stadium facilities, emergency support, and fan queries. |
+| **AI Announcement Generator** | Generates context-aware announcements for crowd management, emergencies, and match updates. |
+| **AI Match Day Planner** | Creates personalized match-day itineraries based on schedules, routes, and user preferences. |
+| **Multilingual Assistant** | Enables seamless communication through AI-powered multilingual translation and assistance. |
 
-Set `OPENAI_API_KEY` in your environment (or a `.env` file) to enable live AI-generated
-responses; without it, the app uses its built-in offline fallbacks so it still runs end to
-end.
+---
 
-## Running the tests
+# 🤖 GenAI Implementation
 
-```bash
-pip install -r requirements-dev.txt
-pytest
-```
+NexArena leverages Large Language Models (LLMs) to:
 
-The test suite spins up the API against an isolated, disposable SQLite database and never
-calls out to OpenAI, so it runs the same way locally and in CI.
+- Generate natural, conversational responses
+- Create context aware stadium announcements
+- Build personalized match day itineraries
+- Translate content across multiple languages
+- Deliver structured, user friendly AI responses
+- Support real time operational decision making
 
-## Accessibility
+---
 
-The frontend uses semantic landmarks (`header`/`main`/`footer`), associates every form
-label with its input via `htmlFor`/`id`, and provides `aria-label`s and keyboard support
-(Enter/Space activation, focus rings) for icon-only controls and the interactive seat map.
+# 💡 Prompt Engineering
+
+Prompt engineering is at the core of NexArena. Each AI module was developed using carefully designed prompts that were continuously refined through testing and evaluation to improve contextual understanding, response accuracy, and overall user experience.
+
+---
+
+# 🛠️ Tech Stack
+
+| 🎨 Frontend | ⚙️ Backend | 🤖 Generative AI |
+|:-----------:|:----------:|:----------------:|
+| Next.js<br>React<br>Tailwind CSS | FastAPI<br>Python | Gemini API |
+
+| 🗄️ Database | ☁️ Deployment | 🧰 Development |
+|:-----------:|:-------------:|:---------------:|
+| SQLite<br>JSON Knowledge Base | Vercel<br>Render | Git<br>GitHub<br>VS Code |
+
+---
+
+## 🎯 Future Roadmap
+
+| Phase | Planned Enhancement |
+|:-----:|:--------------------|
+| Phase 1 | AI Voice Assistant |
+| Phase 2 | Indoor AR Navigation |
+| Phase 3 | Smart Parking Assistance |
+| Phase 4 | Predictive Crowd Analytics |
+| Phase 5 | Wearable Device Integration |
+| Phase 6 | Sustainability & Operational Insights |
+
+---
+
+🏆 Developed as part of the **PromptWars – FIFA World Cup 2026 Challenge**
+
+showcasing the potential of Generative AI in transforming the future of stadium operations.
+
+> **"Because every unforgettable match deserves an unforgettable stadium experience."**
+
