@@ -59,6 +59,22 @@ Prompt engineering is at the core of NexArena. Each AI module was developed usin
 
 ---
 
+
+# 👥 Team Responsibilities
+
+| Team Member | Responsibilities |
+|-------------|------------------|
+| **Shubha** | Designed and developed the complete frontend using **Next.js, React, and Tailwind CSS**, implemented responsive UI components, integrated frontend features, and collaborated on the overall user experience. |
+| **Nithin** | Designed and developed the backend using **FastAPI**, implemented API endpoints, integrated Gemini AI services, and managed application logic and data flow. |
+
+---
+
+## 🎥 Project Demonstration
+ 
+https://www.linkedin.com/posts/m-v-shubha-89611341a_promptwars-generativeai-hackathon-ugcPost-7483408044190781440-WQLS/
+
+---
+
 ## 🎯 Future Roadmap
 
 | Phase | Planned Enhancement |
