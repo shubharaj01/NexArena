@@ -69,9 +69,9 @@ Prompt engineering is at the core of NexArena. Each AI module was developed usin
 
 ---
 
-## 🎥 Project Demonstration
+
  
-https://www.linkedin.com/posts/m-v-shubha-89611341a_promptwars-generativeai-hackathon-ugcPost-7483408044190781440-WQLS/
+
 
 ---
 
