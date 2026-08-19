@@ -1,6 +1,6 @@
 # ⚽ NexArena
 
-> **Reimagining FIFA World Cup 2026 Stadium Operations with Generative AI.**
+> **Reimagining FIFA World Cup Stadium Operations with Generative AI.**
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -8,13 +8,13 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Gemini](https://img.shields.io/badge/Gemini%20API-4285F4?style=for-the-badge&logo=google&logoColor=white)
 
-NexArena is a GenAI-powered smart stadium platform built to transform stadium operations and enhance the FIFA World Cup 2026 experience. Designed for fans, organizers, volunteers, and venue staff, it combines conversational AI, intelligent planning, multilingual communication, and automated announcements to deliver seamless, real time assistance throughout the tournament.
+NexArena is a GenAI-powered smart stadium platform built to transform stadium operations and enhance the FIFA World Cup experience. Designed for fans, organizers, volunteers, and venue staff, it combines conversational AI, intelligent planning, multilingual communication, and automated announcements to deliver seamless, real time assistance throughout the tournament.
 
 ---
 
 # 🧭 Problem Statement
 
-Develop a Generative AI solution that enhances stadium operations and improves the tournament experience by providing intelligent assistance, multilingual communication, operational intelligence, and real-time decision support during the FIFA World Cup 2026.
+Develop a Generative AI solution that enhances stadium operations and improves the tournament experience by providing intelligent assistance, multilingual communication, operational intelligence, and real-time decision support during the FIFA World Cup.
 
 ---
 # ⭐ Core Modules
@@ -88,7 +88,7 @@ Prompt engineering is at the core of NexArena. Each AI module was developed usin
 
 ---
 
-🏆 Developed as part of the **PromptWars – FIFA World Cup 2026 Challenge**
+🏆 Developed as part of the **PromptWars – FIFA World Cup Challenge**
 
 showcasing the potential of Generative AI in transforming the future of stadium operations.
 
